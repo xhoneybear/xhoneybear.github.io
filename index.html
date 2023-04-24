@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <link rel="icon" href="assets/image/github.svg">
+        <link rel="stylesheet" href="assets/css/default.css">
+        <meta charset="UTF-8">
+        <meta name="description" content="A personal page of Camille Lisek (xhoneybear) - IT, biotechnology, arts & crafts!">
+        <meta name="author" content="Camille Lisek (xhoneybear)">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body onload="brython(); insertAge(); typeWrite('hello!')">
+        <header>
+            <div class="logo">
+                <img id="border" src="assets/image/border.png">
+                <img src="assets/image/logo.png" alt="logo">
+            </div>
+            <div>
+                <h1 style="font-weight: 300;">Camille Lisek</h1>
+                <h2 style="margin-top: min(-8px, -0.5vw);"><pre>honey@beehive ~ $ </pre><pre class="terminal"><pre id="input"></pre><pre class="flicker">█</pre></pre></h2>
+            </div>
+        </header>
+
+        <nav class="menubar" onmouseleave="typeDelete()">
+            <menu class="bar">
+                <div class="menu home active"><p onmouseenter="typeWrite('cd ~')" onclick="switchTab(0)">Home</p></div>
+                <div class="menu"><p onmouseenter="typeWrite('log')" onclick="switchTab(1)">Blog</p></div>
+                <div class="menu"><p onmouseenter="typeWrite('git')" onclick="switchTab(2)">Projects</p></div>
+                <div class="menu"><p onmouseenter="typeWrite('who')" onclick="switchTab(3)">About</p></div>
+                <div id="switch" class="menu theme switch light" onmouseenter="typeWrite('theme')" onclick="toggleTheme()">
+                    <div class="slider">
+                        <div class="handle">
+                            <img class="light" src="assets/image/sun.svg">
+                            <img class="dark" src="assets/image/moon.svg">
+                        </div>
+                    </div>
+                </div>
+            </menu>
+        </nav>
+
+        <div class="container">
+            <div class="content" id="home">
+                <div class="top">
+                    <h3 class="center">Welcome to the hive!</h3>
+                </div>
+
+                <div class="left">
+
+                </div>
+
+                <div class="middle">
+                    <div class="section">
+                        <p>Hi! I'm Camille and this is my website! Here I host a <b>Blog</b> where I write very irregularly (whenever something interesting comes up in my head). I maintain a list of my <b>Projects</b> here as well. I have an introductory section, too! Want to get to know me more? Interested in hiring me or getting me involved in your project? check out the <b>About</b> tab!</p>
+                    </div>
+                    <div class="section">
+                        <h4>Contact</h4>
+                        <p>If you want to reach out to me or simply casually hang out with me you can do so on one of the following platforms that I use:</p>
+                        <ul class="social">
+                            <li><a href="https://matrix.to/#/@honey:kitsunes.club" target="_blank">Matrix</a></li>
+                            <li><a href="https://discord.gg/yE5jgj6txW" target="_blank">Discord</a></li>
+                            <li><a href="https://telegram.me/xhoneybear" target="_blank">Telegram</a></li>
+                            <li><a href="mailto:xhoneybearr@gmail.com" target="_blank">E-mail</a></li>
+                        </ul>
+                        <p>There are more options in the footer as well - especially LinkedIn and an e-mail for more official inquiries.</p>
+                        <p>You can contact me on any of these platforms but please clearly state your intentions – I do not reply to inconclusive messages. Thank you for understanding.</p>
+                    </div>
+                    <div class="section">
+                        <p>This site is still very much in a WiP state. Sorry if that causes inconvenience!</p>
+                    </div>
+                </div>
+
+                <div class="right">
+                    <div class="commit">
+                        <table id="commit">
+                            <thead>
+                                <p id="month">Commits – </p>
+                                <th>Mon</th>
+                                <th>Tue</th>
+                                <th>Wed</th>
+                                <th>Thu</th>
+                                <th>Fri</th>
+                                <th>Sat</th>
+                                <th>Sun</th>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content alt" id="blog">
+                <div class="top">
+                    <h3 class="center">Blog</h3>
+                </div>
+                <div class="timeline">
+
+                </div>
+                <div>
+                    <div class="post">
+                        <img src="assets/image/example.jpg" alt="Blog photo">
+                        <div>
+                            <p class="date">Apr 7, 2023</p>
+                            <h4>Blog template</h4>
+                            <p>This is a blog post template.</p>
+                            <p>For now it's just a placeholder.</p>
+                            <p>Follow up to not miss out!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content" id="projects">
+                <div class="top">
+                    <h3 class="center">Projects</h3>
+                </div>
+                <div class="full">
+                    <div class="post">
+                        <img src="assets/image/github.svg" alt="Blog photo">
+                        <div>
+                            <h4>Project template</h4>
+                            <p>Project entry generator is still unimplemented.</p>
+                            <p>For now please go to my GitHub and see</p>
+                            <p>my projects from there. Thank you!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content alt" id="about">
+                <div class="top">
+                    <h3 class="center">About me!</h3>
+                </div>
+                <div class="left">
+                    <div class="gallery">
+                        <div class="slideshow">
+                            <img src="assets/image/example.jpg" alt="Personal photo">
+                            <img src="assets/image/example2.jpg" alt="Personal photo">
+                            <img src="assets/image/example3.jpg" alt="Personal photo">
+                            <img src="assets/image/example2.jpg" alt="Personal photo">
+                            <img src="assets/image/example.jpg" alt="Personal photo">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="section">
+                        <h4>Who am I?</h4>
+                        <p>Hola! My name is Camille, I'm <span id="age"></span> and I am a medical informatics student at Wrocław University of Science and Technology! I'm a science person, hugely interested in IT, nuclear physics and chemistry, medicine and biology, especially genetics. Aside from that my passions also include singing, digital art and cooking!</p>
+                    </div>
+                    <div class="section">
+                        <h4>What I do</h4>
+                        <p>I code out of passion! Tech is something I have been keen on for a really long time and I've grown with it, starting my journey with installing custom Android ROMs and burning Linux Mint CDs when I was around 10 or 11. Now I mostly code in Python, Bash, Scala and HTML/CSS & JS and strive to make exciting projects!</p>
+                    </div>
+                    <div class="section">
+                        <h4>My setup</h4>
+                        <p>My primary device is a laptop so I can code on the go! I am a UNIX-like OS fan with macOS-like flow so I'm currently using Arch Linux with GNOME (with an intent to maybe invest in a MacBook later on). I use VS Code for most of my programming stuff and occasionally Android Studio for building apps for mobile.</p>
+                    </div>
+                    <div class="section">
+                        <h4>My profile</h4>
+                        <p>I'm openly learning to code and I am not specialized in any field! I am an aspiring front-end but I am also capable of backend and scripting. I am a unicorn - I'm a creative mind preferring to experiment and be original in my approach. I also have a huge sense of aesthetics and design everything with utmost care.</p>
+                    </div>
+                    <div class="section">
+                        <h4>Hire me</h4>
+                        <p>I am currently working at Nokia as a Linux Bash Scripting DevOps student. I am currently not looking for a job but I am still open for inquiries! My CV is publicly hosted and available to view <a href="cv/index.html">here</a>.</p>
+                        <!-- <p>I'm open for job offers! My CV is publicly hosted and available to view <a href="cv/index.html">here</a>. Due to university I am only available part-time!</p> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="topper">
+                <div class="wave" id="wave1"></div>
+                <div class="wave" id="wave2"></div>
+                <div class="wave" id="wave3"></div>
+                <div class="wave" id="wave4"></div>
+            </div>
+            <div class="bottom">
+                <div class="social">
+                    <a href="https://github.com/xhoneybear" target="_blank"><img src="assets/image/github.svg" alt="GitHub"></a>
+                    <a href="https://twitter.com/xhoneybear_" target="_blank"><img src="assets/image/twitter.svg" alt="Twitter"></a>
+                    <a href="https://www.facebook.com/twojprzyjaciellisek" target="_blank"><img src="assets/image/facebook.svg" alt="Facebook"></a>
+                    <a href="https://www.linkedin.com/in/camille-lisek/" target="_blank"><img src="assets/image/linkedin.svg" alt="LinkedIn"></a>
+                    <a href="mailto:k.lisek@hotmail.com" target="_blank"><img src="assets/image/email.svg" alt="E-mail"></a>
+                </div>
+                <div class="menufooter">
+                    <p><a href="./index.html">Home</a></p>
+                    <p><a href="./blog.html">Blog</a></p>
+                    <p><a href="./portfolio.html">Projects</a></p>
+                    <p><a href="./about.html">About</a></p>
+                </div>
+                <div class="credit">
+                    <p>© 2023 | Camille Lisek (xhoneybear)</p>
+                </div>
+            </div>
+        </footer>
+    </body>
+
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/brython@3/brython.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/brython@3/brython_stdlib.js"></script>
+<script type="text/python" src="assets/script/default.py"></script>
+<script src="assets/script/default.js"></script>

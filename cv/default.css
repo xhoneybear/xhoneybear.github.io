@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Poppins;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    display: flex;
+    width: 100vw;
+    height: 141.42vw;
+}
+
+h1, h2, h3 {
+    padding: 1vw 0;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: 6vw;
+    font-weight: 500;
+}
+
+h2 {
+    font-size: 3vw;
+    font-weight: 600;
+    letter-spacing: 0.25vw;
+}
+
+h3 {
+    font-size: 1.5vw;
+    letter-spacing: 0.25vw;
+}
+
+.side p {
+    font-size: 1.25vw;
+}
+
+.main li, .main p {
+    font-size: 1.75vw;
+    line-height: 3vw;
+}
+
+.side {
+    width: 33vw;
+    background-color: #123;
+    color: white;
+}
+
+div:not(.main, .side) {
+    padding: 2vw 4vw 2vw 6vw;
+}
+
+.main {
+    width: 67vw;
+    padding-top: 4vw;
+}
+
+img.photo {
+    display: block;
+    width: 100%;
+    padding: 4vw;
+    border-radius: 50%;
+}
+
+.side li {
+    list-style: none;
+    height: 4vw;
+    font-size: 2vw;
+}
+
+li.twoline img {
+    margin-top: 0.75vw
+}
+
+li.twoline {
+    height: 5.5vw;
+}
+
+.side div img {
+    float: left;
+    width: 3vw;
+    padding-right: 1vw;
+    margin-right: 1vw;
+    filter: invert();
+}
+
+div.contact p {
+    padding: 0.25vw;
+}
+
+.side span:not(.text) {
+    display: inline-block;
+    width: 0.75vw;
+    height: 0.75vw;
+    border-radius: 50%;
+    background-color: white;
+}
+
+span.text {
+    padding: 1vw;
+    font-size: 1.25vw;
+}
+
+span.empty {
+    opacity: 0.5;
+}
+
+.main ul {
+    list-style: none;
+    padding-left: 0.5vw;
+}
+
+.main li::before {
+    content: "\2022";
+    float: left;
+    padding-right: 1vw;
+    font-size: 1.5vw;
+    font-weight: 900;
+    height: 2vw;
+}
+
+.thin {
+    font-weight: 100;
+    padding-bottom: 0.5vw;
+}

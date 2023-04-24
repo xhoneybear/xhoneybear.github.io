@@ -1,0 +1,497 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&family=Indie+Flower&family=Marck+Script&display=swap");
+
+@keyframes flicker {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+@keyframes gallery {
+    0% {
+        left: 0vw;
+    }
+    20% {
+        left: 0vw;
+    }
+    25% {
+        left: -25vw;
+    }
+    45% {
+        left: -25vw;
+    }
+    50% {
+        left: -50vw;
+    }
+    70% {
+        left: -50vw;
+    }
+    75% {
+        left: -75vw;
+    }
+    95% {
+        left: -75vw;
+    }
+    100% {
+        left: -100vw;
+    }
+}
+
+@keyframes animateLeft {
+    0% {
+        background-position-x: 50vw;
+    }
+    100% {
+        background-position-x: 0vw;
+    }
+}
+
+@keyframes animateRight {
+    0% {
+        background-position-x: -50vw;
+    }
+    100% {
+        background-position-x: 0vw;
+    }
+}
+
+:root {
+    --bg: white;
+    --font: black;
+    --title: black;
+    --shadow: rgba(0, 0, 0, 0.5);
+    --primary: #fb0;
+    --secondary: #fd0;
+    --icons: 0;
+    --handle: left;
+
+    --tab: 0;
+    --animate: 0;
+    --command: red;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Poppins;
+}
+
+:not(b, i, u, span) {
+    font-weight: 100;
+    transition-duration: calc(1s * var(--animate));
+}
+
+pre, code, var, samp, kbd {
+    font-family: monospace;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+    background-color: var(--bg);
+    overflow-x: hidden;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+}
+
+header * {
+    position: relative;
+    margin: max(8px, 0.5vw) max(16px, 1vw);
+    color: var(--title) !important;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+header pre {
+    display: inline;
+    margin: 0;
+}
+
+pre.terminal {
+    margin-top: 0.125vh;
+    position: absolute;
+}
+
+#input {
+    font-weight: 200;
+    color: var(--command) !important;
+}
+
+pre.flicker {
+    animation: flicker 1.2s step-end infinite;
+}
+
+header > div.logo {
+    width: max(160px, 10vw);
+}
+
+div.logo > img {
+    position: absolute;
+    height: max(160px, 10vw);
+}
+
+div.logo > #border {
+    filter: brightness(var(--icons));
+}
+
+nav.menubar {
+    margin: max(16px, 1.5vw);
+    border-radius: max(16px, 1.5vw);
+    background-color: var(--secondary);
+    box-shadow: inset 0 0 0.25vw black;
+    transition-duration: 0.25s;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: max(16px, 1.5vw);
+    z-index: 1;
+}
+
+menu.bar {
+    list-style-type: none;
+    overflow: hidden;
+}
+
+div.home {
+    border-radius: max(16px, 1.5vw) 0 0 max(16px, 1.5vw);
+}
+
+div.menu {
+    float: left;
+    width: 20vw;
+    transition-duration: 0.25s;
+}
+
+div.menu:hover {
+    background-color: #FC0;
+    box-shadow: inset 0 0 0.5vw black;
+}
+
+div.menu.active {
+    background-color: var(--primary);
+    box-shadow: inset 0 0 0.5vw black;
+}
+
+div.menu p {
+    display: block;
+    padding: 1vw;
+    color: white;
+    font-size: max(20px, 1.5vw);
+    font-weight: 400;
+    line-height: max(32px, 2vw);
+    text-align: center;
+    text-decoration: none;
+    filter: drop-shadow(0 0 max(2px, 0.125vw) black);
+    user-select: none;
+    cursor: pointer;
+}
+
+div.theme {
+    width: unset;
+    margin-top: 1vw;
+    margin-right: 2vw;
+    float: right;
+}
+
+div.switch {
+    width: max(52px, 3.25vw);
+    height: max(32px, 2vw);
+    display: block;
+    background-color: var(--primary);
+    box-shadow: inset 0 0 0.5vw black;
+    border-radius: max(16px, 1vw);
+    cursor: pointer;
+}
+
+div.slider {
+    width: 100%;
+    height: 100%;
+}
+
+div.handle {
+    width: max(26px, 1.625vw);
+    height: max(26px, 1.625vw);
+    margin: max(3px, 0.1875vw);
+    float: var(--handle);
+    background-color: var(--bg);
+    border-radius: max(13px, 0.8175vw);
+    transition-duration: 0.25s;
+}
+
+div.handle > img {
+    position: absolute;
+    width: max(20px, 1.25vw);
+    height: max(20px, 1.25vw);
+    display: block;
+    margin: max(3px, 0.1875vw);
+    filter: invert(75%) sepia() saturate(10) hue-rotate(-20deg) drop-shadow(0vw 0vw 0vw var(--shadow));
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+    transition-duration: 0.25s;
+}
+
+div.slider:hover div.handle {
+    width: max(34px, 2.1vw);
+}
+
+div.slider:active div.handle {
+    width: max(46px, 2.8vw);
+}
+
+img.light {
+    opacity: calc(1 - var(--icons));
+}
+
+img.dark {
+    opacity: var(--icons);
+}
+
+div.container {
+    position: relative;
+    display: flex;
+    width: 400vw;
+    left: calc(-100vw * var(--tab));
+}
+
+div.content {
+    display: grid;
+    width: 100vw;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: max(80px, 5vw);
+    padding: max(16px, 1.5vw);
+    padding-bottom: max(calc(192px + 5vw), 17vw);
+}
+
+div.content > div {
+    padding: 0 2vw;
+}
+
+div.top, div.full {
+    grid-column: 1 / 4;
+}
+
+div.alt {
+    grid-template-columns: 1fr 3fr;
+}
+
+div.section {
+    padding-bottom: max(32px, 2vw);
+}
+
+ul.social {
+    list-style-type: none;
+    margin: 1em;
+}
+
+ul.social > li::before {
+    content: "\2022";
+    color: var(--font);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+    transition-duration: calc(1s * var(--animate));
+}
+
+div.commit {
+    float: right;
+    padding: max(4px, 0.25vw);
+    border: 1px solid var(--shadow);
+    border-radius: max(8px, 0.5vw);
+}
+
+div.commit > table {
+    margin: auto;
+    border-spacing: max(4px, 0.25vw);
+}
+
+div.commit th {
+    font-size: max(8px, 0.5vw);
+}
+
+div.commit p {
+    font-size: max(12px, 0.75vw);
+    text-align: center;
+}
+
+div.commit td {
+    width: max(18px, 1.5vw);
+    height: max(18px, 1.5vw);
+    border-radius: max(4px, 0.2vw);
+    background-color: #BBB;
+    color: var(--font);
+    opacity: 0.5;
+}
+
+div.commit td.error {
+    opacity: 1;
+    background-color: transparent;
+    font-size: max(12px, 0.75vw);
+    text-align: center;
+}
+
+div.post {
+    display: flex;
+    border: 1px solid var(--shadow);
+    border-radius: max(32px, 2vw);
+    margin-bottom: max(24px, 1.5vw);
+}
+
+div.post > * {
+    margin: max(8px, 0.5vw);
+}
+
+div.post > img {
+    width: max(160px, 10vw);
+    height: max(160px, 10vw);
+    border-radius: max(32px, 2vw);
+}
+
+p.date {
+    font-size: max(12px, 0.75vw);
+    margin: max(8px, 0.5vw) 0;
+}
+
+#projects img {
+    filter: invert(var(--icons));
+}
+
+div.gallery {
+    border-radius: 3vw;
+    overflow: hidden;
+}
+
+div.slideshow {
+    position: relative;
+    display: flex;
+    width: 25vw;
+    animation: gallery 20s ease infinite;
+}
+
+div.slideshow > img {
+    width: 100%;
+}
+
+footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+footer * {
+    color: black !important;
+    text-align: center !important;
+}
+
+footer a:hover {
+    opacity: 0.75;
+}
+
+div.topper {
+    position: relative;
+    width: 100%;
+    height: 5vw;
+}
+
+div.wave {
+    position: absolute;
+    width: 100%;
+    height: 5vw;
+    background-image: url('../image/wave.svg');
+    background-size: 50vw;
+}
+
+#wave1 {
+    bottom: -0.25vw;
+    opacity: 1;
+    animation: animateLeft 8s linear infinite;
+}
+
+#wave2 {
+    bottom: 0vw;
+    opacity: 0.75;
+    animation: animateRight 7s linear infinite;
+}
+
+#wave3 {
+    bottom: 0.25vw;
+    opacity: 0.5;
+    animation: animateLeft 6s linear infinite;
+}
+
+#wave4 {
+    bottom: 0.5vw;
+    opacity: 0.25;
+    animation: animateRight 5s linear infinite;
+}
+
+div.bottom {
+    background-color: #fb0;
+    padding: max(16px, 1vw);
+}
+
+div.social img {
+    height: max(32px, 2vw);
+    margin: 0.5vw;
+}
+
+div.menufooter * {
+    display: inline;
+    margin: 0.5vw;
+}
+
+div.credit {
+    margin: max(12px, 0.75vw);
+}
+
+h1, h2, h3, h4, h5, h6, th {
+    color: var(--font);
+}
+
+h1 {
+    font-size: max(64px, 4vw);
+}
+
+h2, h3 {
+    font-size: max(32px, 2vw);
+}
+
+h4 {
+    font-size: max(24px, 1.5vw);
+}
+
+h5 {
+    font-size: max(16px, 1vw);
+}
+
+h6 {
+    font-size: max(12px, 0.75vw);
+}
+
+p, a {
+    color: var(--font);
+    font-size: max(16px, 1vw);
+    text-align: justify;
+}
+
+b {
+    font-weight: 500;
+}
+
+.center {
+    text-align: center;
+}
