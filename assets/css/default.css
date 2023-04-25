@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&family=Indie+Flower&family=Marck+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;500&family=Roboto+Mono:wght@100;200&display=swap");
 
 @keyframes flicker {
     0% {
@@ -84,12 +84,12 @@
 }
 
 :not(b, i, u, span) {
-    font-weight: 100;
+    font-weight: 200;
     transition-duration: calc(1s * var(--animate));
 }
 
 pre, code, var, samp, kbd {
-    font-family: monospace;
+    font-family: Roboto Mono;
 }
 
 html {
@@ -126,8 +126,11 @@ pre.terminal {
     position: absolute;
 }
 
+pre.user {
+    font-weight: 100;
+}
+
 #input {
-    font-weight: 200;
     color: var(--command) !important;
 }
 
@@ -190,7 +193,7 @@ div.menu p {
     padding: 1vw;
     color: white;
     font-size: max(20px, 1.5vw);
-    font-weight: 400;
+    font-weight: 500;
     line-height: max(32px, 2vw);
     text-align: center;
     text-decoration: none;
@@ -300,7 +303,7 @@ ul.social {
 ul.social > li::before {
     content: "\2022";
     color: var(--font);
-    font-weight: bold;
+    font-weight: 900;
     display: inline-block;
     width: 1em;
     margin-left: -1em;
