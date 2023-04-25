@@ -56,7 +56,6 @@ if (theme.matches) {
     toggleTheme()
 }
 
-// I don't know if this works properly, if it doesn't work change != to ==
 theme.addEventListener('change', state => {
     if (state.matches != dark) {
         toggleTheme();
