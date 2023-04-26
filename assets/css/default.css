@@ -376,14 +376,17 @@ p.date {
     height: fit-content;
 }
 
+#projects > div.full > a {
+    margin: 0 max(12px, 0.75vw) max(24px, 1.5vw) max(12px, 0.75vw);
+    border-radius: max(32px, 2vw);
+    overflow: hidden;
+    text-decoration: none;
+}
+
 div.project {
     width: max(320px, 20vw);
     height: max(240px, 15vw);
-    border-radius: max(32px, 2vw);
-    margin: 0 max(12px, 0.75vw) max(24px, 1.5vw) max(12px, 0.75vw);
-    background-image: url(../image/example3.jpg);
     background-size: cover;
-    overflow: hidden;
 }
 
 div.project > div {

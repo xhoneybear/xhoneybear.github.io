@@ -11,7 +11,7 @@ class Error_403(Exception):
     def __init__(self, message=msg):
         super().__init__(message)
 
-def fetch_data(username):
+def fetch_commits(username):
     date = datetime.date.today()
     month = str(date)[:7]
     days = calendar.monthrange(date.year, date.month)
@@ -48,6 +48,32 @@ def make_table(data):
 
 document["month"] <= datetime.date.today().strftime("%B")
 
-table = make_table(fetch_data("xhoneybear"))
+document["commit"] <= make_table(fetch_commits("xhoneybear"))
 
-document["commit"] <= table
+def fetch_repos(username):
+    try:
+        repos = json.loads(urllib.request.urlopen(f"https://api.github.com/users/{username}/repos").read())
+    except HTTPError:
+        document["project"] <= html.P(Error_403.msg, Class="error")
+        raise Error_403
+    names = [repo["name"] for repo in repos if repo["fork"] == False and username not in repo["name"]]
+    descriptions = [repo["description"] for repo in repos if repo["fork"] == False and username not in repo["name"]]
+    print(names)
+    print(descriptions)
+    return (names, descriptions, username)
+
+def make_tiles(data):
+    tiles = html.DIV(Class="full")
+    for i in range(len(data[0])):
+        link = html.A(href=f"https://github.com/{data[2]}/{data[0][i]}")
+        tile = html.DIV(Class="project", style=f"background-image: url(https://github.com/xhoneybear/{data[0][i]}/raw/main/preview.png);")
+        shader = html.DIV()
+        name = urllib.request.urlopen(f"https://raw.githubusercontent.com/xhoneybear/{data[0][i]}/main/README.md").read().split("\n")[0][2:]
+        shader <= html.H4(name)
+        shader <= html.P(data[1][i])
+        tile <= shader
+        link <= tile
+        tiles <= link
+    return tiles
+
+document["projects"] <= make_tiles(fetch_repos("xhoneybear"))
