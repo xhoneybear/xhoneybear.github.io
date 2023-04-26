@@ -4,6 +4,7 @@ Well, this is my website 😇 It's pretty much in heavy WIP state and might be u
 ## Goals
 - [ ] Make it responsive
 - [ ] Optimize (gallery slider)
+- [ ] Improve accessibility
 - [ ] Rethink single-page idea
 - [ ] Rewrite contact info
 - [ ] Design blog timeline
