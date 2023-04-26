@@ -58,8 +58,6 @@ def fetch_repos(username):
         raise Error_403
     names = [repo["name"] for repo in repos if repo["fork"] == False and username not in repo["name"]]
     descriptions = [repo["description"] for repo in repos if repo["fork"] == False and username not in repo["name"]]
-    print(names)
-    print(descriptions)
     return (names, descriptions, username)
 
 def make_tiles(data):
