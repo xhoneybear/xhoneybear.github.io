@@ -347,6 +347,13 @@ div.commit td.error {
     text-align: center;
 }
 
+#blog > div:not(.top) {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    height: fit-content;
+}
+
 div.post {
     display: flex;
     border: 1px solid var(--shadow);
@@ -535,4 +542,19 @@ b {
 
 .center {
     text-align: center;
+}
+
+@media only screen and (max-width: 712px) {
+    div.content > div {
+        display: flex;
+        flex-direction: column;
+        width: 90vw;
+    }
+
+    div.project, div.project > div {
+        width: 90vw;
+    }
+    div.logo > img, div.left, div.right, div.timeline {
+        display: none !important;
+    }
 }
