@@ -58,17 +58,17 @@ def fetch_repos(username):
         raise Error_403
     names = [repo["name"] for repo in repos if repo["fork"] == False and username not in repo["name"]]
     descriptions = [repo["description"] for repo in repos if repo["fork"] == False and username not in repo["name"]]
-    return (names, descriptions, username)
+    return (username, names, descriptions)
 
 def make_tiles(data):
     tiles = html.DIV(Class="full")
-    for i in range(len(data[0])):
-        link = html.A(href=f"https://github.com/{data[2]}/{data[0][i]}")
-        tile = html.DIV(Class="project", style=f"background-image: url(https://github.com/xhoneybear/{data[0][i]}/raw/main/preview.png);")
+    for i in range(len(data[1])):
+        link = html.A(href=f"https://github.com/{data[0]}/{data[1][i]}")
+        tile = html.DIV(Class="project", style=f"background-image: url(https://github.com/{data[0]}/{data[1][i]}/raw/main/preview.png);")
         shader = html.DIV()
-        name = urllib.request.urlopen(f"https://raw.githubusercontent.com/xhoneybear/{data[0][i]}/main/README.md").read().split("\n")[0][2:]
+        name = urllib.request.urlopen(f"https://raw.githubusercontent.com/{data[0]}/{data[1][i]}/main/README.md").read().split("\n")[0][2:]
         shader <= html.H4(name)
-        shader <= html.P(data[1][i])
+        shader <= html.P(data[2][i])
         tile <= shader
         link <= tile
         tiles <= link
