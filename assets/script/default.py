@@ -63,15 +63,13 @@ def fetch_repos(username):
 def make_tiles(data):
     tiles = html.DIV(Class="full")
     for i in range(len(data[1])):
-        link = html.A(href=f"https://github.com/{data[0]}/{data[1][i]}")
-        tile = html.DIV(Class="project", style=f"background-image: url(https://github.com/{data[0]}/{data[1][i]}/raw/main/preview.png);")
-        shader = html.DIV()
+        tile = html.A(Class="project", href=f"https://github.com/{data[0]}/{data[1][i]}", style=f"background-image: url(https://github.com/{data[0]}/{data[1][i]}/raw/main/preview.png)")
+        content = html.DIV(Class="project")
         name = urllib.request.urlopen(f"https://raw.githubusercontent.com/{data[0]}/{data[1][i]}/main/README.md").read().split("\n")[0][2:]
-        shader <= html.H4(name)
-        shader <= html.P(data[2][i])
-        tile <= shader
-        link <= tile
-        tiles <= link
+        content <= html.H4(name)
+        content <= html.P(data[2][i])
+        tile <= content
+        tiles <= tile
     return tiles
 
 document["projects"] <= make_tiles(fetch_repos("xhoneybear"))

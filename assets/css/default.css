@@ -140,6 +140,7 @@ pre.flicker {
 
 header > div.logo {
     width: max(160px, 10vw);
+    height: max(160px, 10vw);
 }
 
 div.logo > img {
@@ -274,7 +275,7 @@ div.content {
     display: grid;
     width: 100vw;
     grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: max(80px, 5vw);
+    grid-template-rows: min-content;
     padding: max(16px, 1.5vw);
     padding-bottom: max(calc(192px + 5vw), 17vw);
 }
@@ -285,6 +286,7 @@ div.content > div {
 
 div.top, div.full {
     grid-column: 1 / 4;
+    margin-bottom: max(32px, 2vw);
 }
 
 div.alt {
@@ -379,33 +381,33 @@ p.date {
 #projects > div.full {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     justify-content: center;
     height: fit-content;
 }
 
-#projects > div.full > a {
+a.project {
+    width: max(320px, 20vw);
+    height: max(240px, 15vw);
     margin: 0 max(12px, 0.75vw) max(24px, 1.5vw) max(12px, 0.75vw);
     border-radius: max(32px, 2vw);
     overflow: hidden;
     text-decoration: none;
-}
-
-div.project {
-    width: max(320px, 20vw);
-    height: max(240px, 15vw);
     background-size: cover;
 }
 
-div.project > div {
+div.project {
     display: flex;
     flex-direction: column;
     justify-content: end;
+    width: max(320px, 20vw);
     height: max(240px, 15vw);
     padding: max(16px, 1vw);
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 1));
+    background-size: cover;
 }
 
-div.project p {
+div.project > p {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
@@ -414,7 +416,7 @@ div.project p {
     color: #fd0;
 }
 
-div.project h4 {
+div.project > h4 {
     color: #fd0;
 }
 
@@ -554,7 +556,10 @@ b {
     div.project, div.project > div {
         width: 90vw;
     }
-    div.logo > img, div.left, div.right, div.timeline {
+    div.left, div.right, div.timeline {
         display: none !important;
+    }
+    header, div.post, a.project, h3, div:not(.abstract, .project) > h4, div:not(.abstract, .project) > p, li, div.switch {
+        zoom: 0.5;
     }
 }
