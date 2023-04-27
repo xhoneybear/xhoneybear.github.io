@@ -276,7 +276,7 @@ div.content {
     width: 100vw;
     grid-template-columns: 1fr 2fr 1fr;
     grid-template-rows: min-content;
-    padding: max(16px, 1.5vw);
+    padding: 1.5vw;
     padding-bottom: max(calc(192px + 5vw), 17vw);
 }
 
@@ -546,15 +546,9 @@ b {
     text-align: center;
 }
 
-@media only screen and (max-width: 712px) {
+@media only screen and (max-width: 960px) {
     div.content > div {
-        display: flex;
-        flex-direction: column;
-        width: 90vw;
-    }
-
-    div.project, div.project > div {
-        width: 90vw;
+        width: 97vw;
     }
     div.left, div.right, div.timeline {
         display: none !important;
