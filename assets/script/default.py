@@ -37,12 +37,14 @@ def make_table(data):
         row = html.TR()
         for j in range(7):
             if 7*i+j < data[1][0] or 7*i+j - data[1][0] + 1 > data[1][1]:
-                row <= html.TD(style="background-color: #888;")
+                cell = html.TD(Class="inactive")
             elif data[0][7*i+j - data[1][0]] != 0:
                 shade = data[0][7*i+j - data[1][0]]*120/max(data[0])
-                row <= html.TD(style=f"background-color: rgb({160 - shade}, {230 - shade}, {170 - shade}); opacity: 0.75;")
+                cell = html.TD(style=f"background-color: rgb({160 - shade}, {230 - shade}, {170 - shade}); opacity: 0.75;")
+                cell <= html.P(data[0][7*i+j - data[1][0]], Class="value", style=f"color: rgb({160 - shade}, {230 - shade}, {170 - shade});")
             else:
-                row <= html.TD()
+                cell = html.TD()
+            row <= cell
         table <= row
     return table
 

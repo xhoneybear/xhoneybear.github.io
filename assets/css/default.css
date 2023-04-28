@@ -314,18 +314,18 @@ ul.social > li::before {
 
 div.commit {
     float: right;
-    padding: max(4px, 0.25vw);
+    padding: 0.5vw;
     border: 1px solid var(--shadow);
-    border-radius: max(8px, 0.5vw);
+    border-radius: 1vw;
 }
 
 div.commit > table {
     margin: auto;
-    border-spacing: max(4px, 0.25vw);
+    border-spacing: 0.25vw;
 }
 
 div.commit th {
-    font-size: max(8px, 0.5vw);
+    font-size: 0.75vw;
 }
 
 div.commit p {
@@ -334,12 +334,16 @@ div.commit p {
 }
 
 div.commit td {
-    width: max(18px, 1.5vw);
-    height: max(18px, 1.5vw);
-    border-radius: max(4px, 0.2vw);
+    width: 2vw;
+    height: 2vw;
+    border-radius: 0.25vw;
     background-color: #BBB;
     color: var(--font);
     opacity: 0.5;
+}
+
+div.commit td.inactive {
+    background-color: #888;
 }
 
 div.commit td.error {
@@ -347,6 +351,22 @@ div.commit td.error {
     background-color: transparent;
     font-size: max(12px, 0.75vw);
     text-align: center;
+}
+
+div.commit td:not(.inactive, .error):hover {
+    background-color: var(--bg) !important;
+}
+
+p.value {
+    visibility: hidden;
+    font-size: 1.25vw !important;
+    font-weight: 900;
+    cursor: default;
+    user-select: none;
+}
+
+div.commit td:hover > p.value {
+    visibility: visible;
 }
 
 #blog > div:not(.top) {
@@ -547,7 +567,7 @@ b {
 }
 
 @media only screen and (max-width: 720px) {
-    header, div.post, a.project, h3, div:not(.abstract, .project) > h4, div:not(.abstract, .project) > p, li, div.switch, div.social, div.commit {
+    header, div.post, a.project, h3, div:not(.abstract, .project) > h4, div:not(.abstract, .project) > p, li, div.switch, div.social {
         zoom: 0.5;
     }
 }
