@@ -11,6 +11,8 @@ Well, this is my website 😇 It's pretty much in heavy WIP state and might be u
 - [ ] Design 404 page
 - [x] Reimagine project tiles
 - [x] Code blog/project tile generators
+- [ ] Add weather widget on main page
+- [ ] Replace generators with GitHub Actions
 - [ ] Add a bunch of photos of me
 
 I guess that's it
