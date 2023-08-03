@@ -1,9 +1,9 @@
 # Personal website
-Well, this is my website 😇 It's pretty much in heavy WIP state and might be unoptimized, it's kind of buggy on mobiles as well but now you can use it and it doesn't really look that bad I think
+Well, this is my old website. It's written in pure HTML/CSS/JS and will probably be in a permanent WIP state since I'm moving to Svelte web development. It's kind of buggy on mobiles as well but now you can use it and it doesn't really look that bad I think.
 
 ## Goals
 - [x] Make it responsive
-- [ ] Optimize (gallery slider)
+- [x] Optimize (gallery slider)
 - [ ] Improve accessibility
 - [ ] Rethink single-page idea
 - [ ] Rewrite contact info
@@ -14,5 +14,3 @@ Well, this is my website 😇 It's pretty much in heavy WIP state and might be u
 - [ ] Add weather widget on main page
 - [ ] Replace generators with GitHub Actions
 - [ ] Add a bunch of photos of me
-
-I guess that's it
