@@ -100,7 +100,7 @@ body {
     position: relative;
     min-height: 100vh;
     background-color: var(--bg);
-    overflow-x: hidden;
+    overflow-x: clip;
 }
 
 header {
